@@ -25,7 +25,7 @@
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID таксиста" Binding="{Binding ApplicantID}" />
                     <DataGridTextColumn Header="Имя" Binding="{Binding Name}" />
-                    <DataGridTextColumn Header="марка машины" Binding="{Binding GPA}" />
+                    <DataGridTextColumn Header="Рейтинг" Binding="{Binding GPA}" />
                 </DataGrid.Columns>
             </DataGrid>
 
@@ -35,3 +35,4 @@
         </Grid>
     </Grid>
 </Window>
+

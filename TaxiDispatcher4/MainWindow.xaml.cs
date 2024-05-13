@@ -41,20 +41,32 @@ namespace taxiAdmissionAutomation
             this.Close();
         }
 
+
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             string searchTerm = searchTextBox.Text.Trim();
 
+            if (string.IsNullOrEmpty(searchTerm))
+            {
+                MessageBox.Show("Пожалуйста, введите имя для поиска.", "ВНИМАНИЕ", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+
             try
             {
-                ViewModel.SearchApplicants(searchTerm);
+                IEnumerable<Applicant> matchingApplicants = _originalApplicants.FindAll(applicant => applicant.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase));
+                Applicants.Clear();
+                foreach (Applicant applicant in matchingApplicants)
+                {
+                    Applicants.Add(applicant);
+                }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"При поиске кандидатов произошла ошибка: {ex.Message}", "ААААШИБКА", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"При поиске такси произошла ошибка: {ex.Message}", "ААААШИБКА", MessageBoxButton.OK, MessageBoxImage.Error);
             }
-        }
 
+        }
         private void CancelSearchButton_Click(object sender, RoutedEventArgs e)
         {
             if (ViewModel != null)
