@@ -1,0 +1,32 @@
+﻿<Window x:Class="TaxiDispatcher4.cirkaRegister"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Taxi Registration" Height="300" Width="400">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Name:" VerticalAlignment="Center"/>
+        <TextBox Grid.Column="1" Name="txtName" Width="150" Margin="5,0,0,0"/>
+
+        <TextBlock Grid.Row="1" Text="Car Number:" VerticalAlignment="Center"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Name="txtCarNumber" Width="150" Margin="5,0,0,0"/>
+
+        <TextBlock Grid.Row="2" Text="Car Class:" VerticalAlignment="Center"/>
+        <ComboBox Grid.Row="2" Grid.Column="1" Name="cboCarClass" Margin="5,0,0,0">
+            <ComboBoxItem Content="Economy"/>
+            <ComboBoxItem Content="Comfort"/>
+            <ComboBoxItem Content="Luxury"/>
+        </ComboBox>
+
+        <Button Grid.Row="3" Grid.Column="1" Content="Register" HorizontalAlignment="Right" Margin="5,5,5,5" Click="Register_Click"/>
+    </Grid>
+</Window>

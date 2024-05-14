@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using MySqlConnector;
-namespace Курсач_сайко_1125
+namespace Курсач_Джураева_1125
 {
     internal class textBoxUsername
     {
@@ -9,7 +9,7 @@ namespace Курсач_сайко_1125
         public void GetDataFromDatabase()
         {
             // Create a connection to the database
-            string connectionString = "server=localhost;user=root;password=student;database=dayn1";
+            string connectionString = "server=localhost;user=root;password=student;database=taxi";
             SqlConnection connection = new SqlConnection(connectionString);
             connection.Open();
 

@@ -16,8 +16,8 @@ namespace taxiAdmissionAutomation
         public List<Applicant> _originalApplicants = new List<Applicant>();
         private readonly Login login;
         public MainWindowViewModel ViewModel { get; set; }
-        private ObservableCollection<Applicant> _applicants = new ObservableCollection<Applicant>();
-        public ObservableCollection<Applicant> Applicants { get => _applicants; set => SetProperty(ref _applicants, value); }
+        private ObservableCollection<Applicant> applicants = new ObservableCollection<Applicant>();
+        public ObservableCollection<Applicant> Applicants { get => applicants; set => SetProperty(ref applicants, value); }
 
         private void SetProperty(ref ObservableCollection<Applicant> applicants, ObservableCollection<Applicant> value)
         {
@@ -82,44 +82,48 @@ namespace taxiAdmissionAutomation
                 MessageBox.Show($"Selected applicant: {applicant.Name} ({applicant.ApplicantID})");
             }
         }
+
+        public class TaxiDriver
+        {
+        }
     }
 
     public class Applicant : INotifyPropertyChanged
     {
-        private string _applicantID;
-        private string _name;
-        private decimal _gpa;
+        private string applicantID;
+        private string name;
+        private decimal gpa;
 
         public string ApplicantID
         {
-            get => _applicantID;
+            get => applicantID;
             set
             {
-                _applicantID = value;
+                applicantID = value;
                 OnPropertyChanged();
             }
         }
 
         public string Name
         {
-            get => _name;
+            get => name;
             set
             {
-                _name = value;
+                name = value;
                 OnPropertyChanged();
             }
         }
 
         public decimal GPA
         {
-            get => _gpa;
+            get => gpa;
             set
             {
-                _gpa = value;
+                gpa = value;
                 OnPropertyChanged();
             }
         }
-
+      
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
